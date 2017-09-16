@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 app.use(bp.json());
+
 // app.use("/api", require("./api/index.js"));
 
 app.get('*', (req, res) => {
