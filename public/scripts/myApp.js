@@ -6,8 +6,8 @@ myApp
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
-          templateUrl: 'latest.html',
-          controller: 'LatestController'
+          templateUrl: 'home.html',
+          controller: 'controller'
         })
         .when('/login', {
           templateUrl: 'login.html',
@@ -30,8 +30,8 @@ myApp
           controller: 'NewTopicController'
         })
         .when('/topics/:id', {
-          templateUrl: 'topicDetail.html',
-          controller: 'TopicDetailController'
+          templateUrl: 'topic.html',
+          controller: 'TopicController'
         })
         .when('/latest', {
           templateUrl: 'latest.html',
@@ -43,14 +43,10 @@ myApp
         })
         .otherwise({redirectTo: '/'});
 
-      $locationProvider.html5Mode({
-        enabled: true
-      });
+      $locationProvider.html5Mode(true);
     }
   ])
-  .run([
-    '$rootScope',
-    function($rootScope) {
+  .run(['$rootScope', function($rootScope) {
 
     }
   ]);

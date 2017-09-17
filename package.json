@@ -1,0 +1,30 @@
+{
+  "name": "Message-Bored",
+  "version": "1.0.0",
+  "description": "Angular 1.x Exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scottkf58/Message-Bored.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottkf58/Message-Bored/issues"
+  },
+  "homepage": "https://github.com/scottkf58/Message-Bored#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "bulma": "^0.5.2",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "method-override": "^2.3.9",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.8.4"
+  }
+}

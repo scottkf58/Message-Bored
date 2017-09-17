@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bored",
+    "password": null,
+    "database": "message_bored",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "bored",
+    "password": null,
+    "database": "message_bored",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "bored",
+    "password": null,
+    "database": "message_bor",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
