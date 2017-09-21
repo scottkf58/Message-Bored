@@ -5,8 +5,8 @@ const userRouter = require('./users');
 const topicRouter = require('./topics');
 const messageRouter = require('./messages');
 
-router.use('/users', userRouter);
-router.use('/topics', topicRouter);
-router.use('/messages', messageRouter);
+router.use('/', userRouter);
+router.use('/', topicRouter);
+router.use('/', messageRouter);
 
 module.exports = router;
