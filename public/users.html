@@ -1,0 +1,10 @@
+<label class="label">User List</label>
+  <div class="control has-icons-left has-icons-right">
+    <input class="input is-success" type="text" placeholder="Search User List" ng-model="searchUserList">
+    <div ng-repeat="user in users | filter:searchUserList | orderBy:'name'">
+    <span class="icon is-small is-left">
+      <i class="fa fa-user"></i>
+    </span>
+    <span>{{ user.name }}</span>
+  </div>
+</div>
