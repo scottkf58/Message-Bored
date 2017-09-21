@@ -6,8 +6,7 @@ myApp
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider
         .when('/', {
-          templateUrl: 'home.html',
-          controller: 'controller'
+          templateUrl: 'home.html'
         })
         .when('/login', {
           templateUrl: 'login.html',
@@ -15,15 +14,11 @@ myApp
         })
         .when('/register', {
           templateUrl: 'register.html',
-          controller: 'RegController'
+          controller: 'RegisterController'
         })
         .when('/users', {
           templateUrl: 'users.html',
-          controller: 'UsersController'
-        })
-        .when('/users/:id', {
-          templateUrl: 'user.html',
-          controller: 'UserByIdController'
+          controller: 'UserListController'
         })
         .when('/newTopic', {
           templateUrl: 'newTopic.html',
@@ -33,10 +28,10 @@ myApp
           templateUrl: 'topic.html',
           controller: 'TopicController'
         })
-        .when('/latest', {
-          templateUrl: 'latest.html',
-          controller: 'LatestController'
-        })
+        // .when('/latest', {
+        //   templateUrl: 'latest.html',
+        //   controller: 'LatestController'
+        // })
         .when('/newMessage', {
           templateUrl: 'newMessage.html',
           controller: 'NewMessageController'
