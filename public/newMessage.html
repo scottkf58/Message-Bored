@@ -1,0 +1,20 @@
+<div class="field">
+  <label class="label">Topics</label>
+  <div class="control">
+    <div class="select">
+      <select>
+        <option>Select dropdown</option>
+        <option ng-repeat="topic in topics">{{ topic.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+<div class="control">
+  <textarea ng-model="newMessage.body" class="textarea is-hovered" type="text" placeholder="New Message"></textarea>
+</div>
+
+<div>
+  <button class="button is-primary" ng-click="createNewMessage()"><a ng-href="/latest"></a>Create New Message</button>
+</div>

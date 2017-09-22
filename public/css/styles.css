@@ -1,3 +1,28 @@
-.nav {
-  font-size: 20px;
+body {
+  padding 10px;
+  margin: 10px;
+}
+
+.topicsContainer {
+  text-align: center;
+}
+
+
+.title {
+  color: white;
+  background-color: hsl(171, 100%, 41%);
+  padding: 10px;
+  text-align: center;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.hero {
+  text-align: center;
+}
+
+.input {
+  width: 50%;
 }
