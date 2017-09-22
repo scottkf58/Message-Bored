@@ -2,14 +2,18 @@ const express = require('express');
 const router = express.Router();
 const { Users, Topics, Messages } = require('../../models');
 
+
+
 router.get('/topics', (req, res) => {
   return Topics.findAll({
     attributes: ['id', 'name', 'createdAt'],
     include: [{ model: Users, attributes: ['name'] }]
-  }).then(topics => {
+  })
+  .then( (topics) => {
     res.json(topics);
   });
 });
+
 
 router.get('/topics/:id', (req, res) => {
   let topicId = req.params.id;
@@ -26,18 +30,19 @@ router.get('/topics/:id', (req, res) => {
         attributes: ['name', 'id']
       }
     ]
-  }).then(result => {
+  })
+  .then( (result) => {
     res.json(result);
   });
 });
-
 
 
 router.post('/topics', (req, res) => {
   return Topics.create({
     name: req.body.name,
     created_by: req.body.created_by
-  }).then(topic => {
+  })
+  .then( (topic) => {
     return res.json(topic);
   });
 });

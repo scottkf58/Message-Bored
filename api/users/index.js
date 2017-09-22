@@ -10,6 +10,28 @@ router.get('/users', (req, res) => {
   });
 });
 
+router.get('/users/:id', (req, res) => {
+  let userId = req.params.id;
+  return Users.findById(userId, {
+    attributes: ['id', 'name'],
+    include: [
+      {
+        model: Messages,
+        attributes: ['body', 'createdAt'],
+        include: [
+          {
+            model: Topics,
+            attributes: ['name', 'id']
+          }
+        ]
+      }
+    ]
+  })
+  .then( (result) => {
+    res.json(result);
+  });
+});
+
 
 router.post('/users', (req, res) => {
   Users.create({ name: req.body.name })
