@@ -11,35 +11,34 @@
 </head>
 
 <body ng-app="myApp">
-
   <h1 class="title is-1">Message Bored</h1>
+  <div ng-if="isLoggedIn">
+  <h1>Hi, {{ loggedInUserName }}</h1>
+  </div>
+
   <nav class="breadcrumb is-centered">
-    <div class="container">
-      <ul>
-        <li><a ng-href="/">Home</a></li>
-        <li><a ng-href="/login" ng-click="login()">Login</a></li>
-        <li><a ng-href="/register">Register</a></li>
-        <li><a ng-href="/users">Users</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a ng-href="/">Home</a></li>
+      <li><a ng-href="/users">User List</a></li>
+      <li ng-if="!isLoggedIn"><a ng-href="/register">Register</a></li>
+      <li ng-if="isLoggedIn"><a ng-href="/topicsList">Topics</a></li>
+      <li ng-if="isLoggedIn"><a ng-href="/latest">Latest</a></li>
+      <li ng-if="isLoggedIn" ng-click="logout()"><a ng-href="/">Logout</a></li>
+      <li ng-if="!isLoggedIn"><a ng-href="/login" ng-click="login()">Login</a></li>
+    </ul>
   </nav>
   <nav class="breadcrumb is-centered">
-    <div class="container">
-      <ul>
-        <li><a ng-href="/newTopic">Create New Topic</a>  </li>
-        <li><a ng-href="/newMessage">Add New Message</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li ng-if="isLoggedIn"><a ng-href="/newTopic">Create New Topic</a></li>
+      <li ng-if="isLoggedIn"><a ng-href="/newMessage">Add New Message</a></li>
+    </ul>
   </nav>
 
-  <ul class="topicsContainer" ng-controller="GetTopicsController">
-    <h1 class="topicsTitle">Topics</h1>
-    <li ng-repeat="topic in topics">
-      <a ng-href="/topics/{{topic.id}}">{{ topic.name }}</a>
-    </li>
-  </ul>
+  <div class="welcome" ng-if="!isLoggedIn">
+  <h1>Welcome! Please login or register today!</h1>
+  </div>
+
   <br>
-
 
   <ng-view></ng-view>
 
@@ -58,6 +57,7 @@
   <script src="./scripts/controllers/NewMessageController.js" type="text/javascript"></script>
   <script src="./scripts/controllers/GetTopicsController.js" type="text/javascript"></script>
   <script src="./scripts/controllers/TopicController.js" type="text/javascript"></script>
+  <script src="./scripts/controllers/LatestController.js" type="text/javascript"></script>
 
 
 
