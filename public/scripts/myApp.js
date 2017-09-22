@@ -5,9 +5,6 @@ var myApp = angular.module('myApp');
 myApp
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider
-        .when('/', {
-          templateUrl: 'home.html'
-        })
         .when('/login', {
           templateUrl: 'login.html',
           controller: 'LoginController'
@@ -28,6 +25,10 @@ myApp
           templateUrl: 'topic.html',
           controller: 'TopicController'
         })
+        .when('/topicsList', {
+          templateUrl: 'topicsList.html',
+          controller: 'GetTopicsController'
+        })
         // .when('/latest', {
         //   templateUrl: 'latest.html',
         //   controller: 'LatestController'
@@ -41,7 +42,14 @@ myApp
       $locationProvider.html5Mode(true);
     }
   ])
-  .run(['$rootScope', function($rootScope) {
+  .run(['$rootScope', '$window','AdminService', function ($rootScope, $window, AdminService) {
+      $rootScope.isLoggedIn = localStorage.loggedIn;
+      $rootScope.loggedInUserId = localStorage.user_id;
+      $rootScope.loggedInUserName = localStorage.user;
 
+      $rootScope.logout = function () {
+        AdminService.logout();
+        $window.location.href = '/';
+      };
     }
   ]);
