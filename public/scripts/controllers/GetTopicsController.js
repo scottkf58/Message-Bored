@@ -1,4 +1,3 @@
-
 angular.module('myApp')
 .controller('GetTopicsController', ['$scope', 'TopicsService', function($scope, TopicsService) {
     $scope.topics = [];

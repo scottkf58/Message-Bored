@@ -1,4 +1,3 @@
-
 angular.module('myApp')
 .controller('NewTopicController', ['$scope', '$window', 'TopicsService', function ($scope, $window, TopicsService) {
     $scope.newTopic = {name: ''};

@@ -29,10 +29,10 @@ myApp
           templateUrl: 'topicsList.html',
           controller: 'GetTopicsController'
         })
-        // .when('/latest', {
-        //   templateUrl: 'latest.html',
-        //   controller: 'LatestController'
-        // })
+        .when('/latest', {
+          templateUrl: 'latest.html',
+          controller: 'LatestController'
+        })
         .when('/newMessage', {
           templateUrl: 'newMessage.html',
           controller: 'NewMessageController'
@@ -44,7 +44,7 @@ myApp
   ])
   .run(['$rootScope', '$window','AdminService', function ($rootScope, $window, AdminService) {
       $rootScope.isLoggedIn = localStorage.loggedIn;
-      $rootScope.loggedInUserId = localStorage.user_id;
+      $rootScope.loggedInUser = localStorage.user_id;
       $rootScope.loggedInUserName = localStorage.user;
 
       $rootScope.logout = function () {

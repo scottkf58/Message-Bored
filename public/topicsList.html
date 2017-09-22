@@ -1,6 +1,7 @@
-  <ul class="topicsContainer" ng-controller="GetTopicsController" ng-if="isLoggedIn">
-    <h1 class="topicsTitle">Topics</h1>
-    <li ng-repeat="topic in topics">
-      <a ng-href="/topics/{{topic.id}}">{{ topic.name }}</a>
-    </li>
-  </ul>
+<ul class="topicsContainer" ng-controller="GetTopicsController" ng-if="isLoggedIn">
+  <input type="text" ng-model="searchTopicsList" placeholder="Filter">
+  <h1 class="topicsTitle">Topics</h1>
+  <li ng-repeat="topic in topics | filter: searchTopicsList">
+    <a ng-href="/topics/{{topic.id}}">{{ topic.name }}</a>
+  </li>
+</ul>

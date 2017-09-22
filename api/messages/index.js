@@ -27,7 +27,7 @@ router.post('/messages', (req, res) => {
 });
 
 router.get('/messages/by-topic/:topic_id', (req, res) => {
-  let topicId = req.params.topic_id;
+  var topicId = req.params.topic_id;
   return Messages.findAll({
     where: { topic_id: topicId },
     attributes: ['id', 'body', 'createdAt'],
