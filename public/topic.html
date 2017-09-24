@@ -1,8 +1,17 @@
+<div ng-controller="TopicController">
 <h1>Topic: {{ topic.name }}</h1>
-<div>Created on: {{ topic.createdAt }}</div>
+<div>Created: {{ topic.createdAt | date : "medium" }}</div>
 <div>By: {{ topic.author }}</div>
+</div>
+<br>
 
-<div ng-repeat="message in topicMessages">
+<div class="control">
+  <textarea ng-model="newMessage.body" class="textarea is-hovered" type="text" placeholder="New Message"></textarea>
+
+  <button class="button is-primary" ng-click="createNewMessage()"><a ng-href="/topics/{{topic.id}}"></a>Create New Message</button>
+</div>
+
+<div ng-controller="TopicController" ng-repeat="message in topicMessages">
   <div>Message: {{ message.body }}</div>
   <div>Posted On: {{ message.createdAt }}</div>
   <div>By: {{ message.user.name }}</div>

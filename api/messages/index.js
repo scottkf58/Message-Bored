@@ -17,27 +17,30 @@ router.get('/messages/latest', (req, res) => {
 
 
 router.post('/messages', (req, res) => {
+  console.log('Topic id', req.body.topic_id)
   Messages.create({
     body: req.body.body,
-    created_by: req.body.created_by
+    created_by: req.body.created_by,
+    topic_id: req.body.topic_id,
+    author_id: req.body.author_id
   })
   .then( (message) => {
     return res.json(message);
   });
 });
 
-router.get('/messages/by-topic/:topic_id', (req, res) => {
+router.get('/messages/:topic_id', (req, res) => {
   var topicId = req.params.topic_id;
   return Messages.findAll({
     where: { topic_id: topicId },
     attributes: ['id', 'body', 'createdAt'],
     include: [
       { model: Users, attributes: ['name'] },
-      { model: Topics, attributes: ['id', 'name', 'color'] }
+      { model: Topics, attributes: ['id', 'name'] }
     ],
     order: [['createdAt']]
   })
-  .then(result => {
+  .then( (result) => {
     return res.json(result);
   });
 });

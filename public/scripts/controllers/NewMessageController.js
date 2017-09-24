@@ -1,25 +1,20 @@
 angular.module('myApp')
-.controller('NewMessageController', ['$scope', '$window', 'TopicsService', 'MessagesService', function ($scope, $window, TopicsService, MessagesService) {
-    $scope.newMessage = {
-      topic_id: '',
-      body: '',
-      author_id: '',
-    };
+.controller('NewMessageController', ['$rootScope', '$scope', '$window', 'TopicsService', 'MessagesService', function ($rootScope, $scope, $window, TopicsService, MessagesService) {
+    $scope.newMessage = {body: ''};
 
-    TopicsService.getTopics()
-    .then(function (topics) {
-      $scope.topics = topics;
-    });
+    let topic_id = $window.location.href[$window.location.href.length -1];
 
     $scope.createNewMessage = function () {
       var newMessage = {
-        topic_id: $scope.newMessage.topic_id,
         body: $scope.newMessage.body,
-        author_id: localStorage.user_id
+        topic_id: topic_id,
+        author_id: $rootScope.loggedInUser
       };
 
       MessagesService.createNewMessage(newMessage);
-      $window.location.href = '/latest';
+      $window.location.href = `/topics/${topic_id}`;
     };
   }
 ]);
+
+

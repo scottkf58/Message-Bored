@@ -15,13 +15,13 @@ angular.module('myApp').service('MessagesService', [
         });
       },
 
-      getByTopic: function(topic) {
-        return $http
-        .get('/api/messages/by-topic/' + topic.id)
-          .then(function(messages) {
-            return messages.data;
-        });
-      },
+      // getByTopic: function(topic) {
+      //   return $http
+      //   .get('/api/messages/by-topic/' + topic.id)
+      //     .then(function(messages) {
+      //       return messages.data;
+      //   });
+      // },
     };
   }
 ]);

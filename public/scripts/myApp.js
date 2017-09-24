@@ -1,5 +1,4 @@
 angular.module('myApp', ['ngRoute']);
-
 var myApp = angular.module('myApp');
 
 myApp
@@ -23,19 +22,11 @@ myApp
         })
         .when('/topics/:id', {
           templateUrl: 'topic.html',
-          controller: 'TopicController'
+          controller: 'NewMessageController'
         })
         .when('/topicsList', {
           templateUrl: 'topicsList.html',
           controller: 'GetTopicsController'
-        })
-        .when('/latest', {
-          templateUrl: 'latest.html',
-          controller: 'LatestController'
-        })
-        .when('/newMessage', {
-          templateUrl: 'newMessage.html',
-          controller: 'NewMessageController'
         })
         .otherwise({redirectTo: '/'});
 

@@ -8,6 +8,7 @@ angular.module('myApp')
       };
 
       AdminService.createNewUser(user);
+      console.log(user);
       $window.location.href = '/login';
     };
   }]);

@@ -3,7 +3,6 @@ const router = express.Router();
 const { Users, Topics, Messages } = require('../../models');
 
 
-
 router.get('/topics', (req, res) => {
   return Topics.findAll({
     attributes: ['id', 'name', 'createdAt'],
