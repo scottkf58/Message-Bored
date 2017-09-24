@@ -1,6 +1,8 @@
-<div ng-repeat="message in messages">
-  <a ng-href="/topics/{{ message.topic.id }}"><button>{{ message.topic.name }}</button></a>
-  {{ message.body }}
-  <br />
-  <div>created on {{ message.createdAt }} by {{ message.user.name }}</div>
+<div class="bigger">Latest and Greatest</div>
+
+<div ng-controller="MessageController" ng-repeat="message in messages">
+  <br>
+  <div>Message: {{ message.body }}</div>
+  <div>Posted On: {{ message.createdAt }}</div>
+  <div>By: {{ message.User.name }}</div>
 </div>

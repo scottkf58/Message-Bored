@@ -4,6 +4,10 @@ var myApp = angular.module('myApp');
 myApp
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
       $routeProvider
+        .when('/latest', {
+          templateUrl: 'latest.html',
+          controller: 'MessageController'
+        })
         .when('/login', {
           templateUrl: 'login.html',
           controller: 'LoginController'
@@ -22,7 +26,7 @@ myApp
         })
         .when('/topics/:id', {
           templateUrl: 'topic.html',
-          controller: 'NewMessageController'
+          controller: 'MessageController'
         })
         .when('/topicsList', {
           templateUrl: 'topicsList.html',

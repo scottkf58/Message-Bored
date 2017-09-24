@@ -1,6 +1,6 @@
 <ul class="topicsContainer" ng-controller="GetTopicsController" ng-if="isLoggedIn">
   <input type="text" ng-model="searchTopicsList" placeholder="Filter">
-  <h1 class="topicsTitle">Topics</h1>
+  <div class="bigger">Topics</div>
   <li ng-repeat="topic in topics | filter: searchTopicsList | orderBy:'name'">
     <a ng-href="/topics/{{topic.id}}">{{ topic.name }}</a>
   </li>

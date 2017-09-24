@@ -17,7 +17,6 @@ router.get('/messages/latest', (req, res) => {
 
 
 router.post('/messages', (req, res) => {
-  console.log('Topic id', req.body.topic_id)
   Messages.create({
     body: req.body.body,
     created_by: req.body.created_by,
