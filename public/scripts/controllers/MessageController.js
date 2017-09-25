@@ -17,8 +17,10 @@ angular.module('myApp')
 
       MessagesService.latestMessages()
         .then(function (messages) {
+          // console.log('whats the message', messages);
           $scope.messages = messages;
         });
+
   }
 ]);
 

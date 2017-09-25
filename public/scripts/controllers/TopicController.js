@@ -10,6 +10,6 @@ angular.module('myApp')
         author: topic.User.name
       };
 
-      $scope.topicMessages = topic.messages;
+      console.log(topic);
     });
   }]);
